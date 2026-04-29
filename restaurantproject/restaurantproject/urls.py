@@ -24,5 +24,6 @@ urlpatterns = [
     path('menu/',include('menu.urls')),
     path('app/products/<str:sku>/',views.product_detail_view,name = "product-detail-view" ),
     path('app/about/',views.about,name='App-About-Page'),
-    path('app/greet/<str:username>/',GreetView.as_view(),name='greet')
+    path('app/greet/<str:username>/',GreetView.as_view(),name='greet'),
+    path('app/welcome/<str:name>/',views.welcome_view,name='welcome_view')
 ]

@@ -23,13 +23,19 @@ def product_detail_view(request,sku):
     
     else :
         return JsonResponse(product)
-    
+
+
+def welcome_view(request,name):
+    if request.method != 'GET':
+        response = HttpResponse("method not allwoed", status = 405,content_type = 'text/plain')
+        response["Allow"] = "GET"
+        return response
+
+    return HttpResponse(f"Welcome to Django. {name}!",content_type='text/plain') 
+
 class GreetView(View):
     http_method_names = ['get']
 
     def get(self,request,username):
         message = f"Hello , {username}"
         return HttpResponse(message)
-
-
-def welcome_view
